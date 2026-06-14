@@ -6,6 +6,12 @@ import java.nio.file.StandardOpenOption
 import java.time.Instant
 import java.time.format.DateTimeFormatter
 
+tasks.whenTaskAdded { task ->
+    if (task.name == 'publishModPublicationToSonatypeRepository') {
+        task.enabled = false
+    }
+}
+
 plugins {
     java
     `maven-publish`
