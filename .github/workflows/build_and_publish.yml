@@ -26,10 +26,7 @@ jobs:
         distribution: 'temurin'
         java-version: '8'
     - name: Build with Gradle
-      env:
-        sonatypeUsername: ${{ secrets.OSSRH_USERNAME }}
-        sonatypePassword: ${{ secrets.OSSRH_PASSWORD }}
-      run: ./gradlew build publish
+      run: ./gradlew build publish -x publishModPublicationToSonatypeRepository
     - uses: actions/upload-artifact@v4
       with:
         name: Compiled jars
